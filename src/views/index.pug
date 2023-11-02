@@ -1,6 +1,14 @@
-doctype html
-html
-  head
-    title My Express Pug Project
-  body
-    h1 Welcome to my  Express project powered by Typescript.
+extends layout
+
+block content
+  h1= title
+  p Welcome to #[em Controller Inventory], a very basic Express website.
+
+  h1 Dynamic content
+
+  p The inventory has the following controllers:
+
+  ul
+    li #[strong Controllers:] !{book_count}
+    li #[strong Controller Types:] !{book_instance_count}
+    li #[strong Designers:] !{book_instance_available_count}

@@ -7,7 +7,7 @@ import http from "http";
 import path from "path";
 
 import mongoose from "mongoose";
-import router from "./router/router";
+import router from "./router";
 
 const app = express();
 
