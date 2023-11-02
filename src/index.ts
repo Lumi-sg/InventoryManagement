@@ -21,7 +21,8 @@ app.use(compression());
 app.use(bodyParser.json());
 
 //DB Stuff
-const MONGO_URL = "PLAECEHOLDER";
+const MONGO_URL =
+	"mongodb+srv://Shai:Dragon92@cluster0.lolmzc0.mongodb.net/inventory_mgmt?retryWrites=true&w=majority";
 
 mongoose.set("strictQuery", false);
 mongoose.Promise = Promise;
