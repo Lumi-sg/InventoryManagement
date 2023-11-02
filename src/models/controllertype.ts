@@ -3,7 +3,8 @@ import mongoose from "mongoose";
 export enum ControllerTypeOptions {
 	Type1 = "Gamecube Controller",
 	Type2 = "Box Controller",
-	Type3 = "Keyboard",
+	Type3 = "Phob",
+	Type4 = "Keyboard",
 }
 const Schema = mongoose.Schema;
 

@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const controllerSchema = new Schema({
-	product_name: { type: String, required: true },
+	product_name: { type: String, required: true, minlength: 1, maxlength: 50 },
 	price: { type: Number, required: true },
 	description: { type: String, required: true },
 	controller_type: {
