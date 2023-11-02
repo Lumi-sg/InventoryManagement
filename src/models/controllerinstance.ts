@@ -2,12 +2,17 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
+enum StatusOptions {
+	Available = "Available",
+	Sold = "Sold",
+}
+
 const controllerInstanceSchema = new Schema({
 	controller: { type: Schema.Types.ObjectId, ref: "Controller" },
 	status: {
 		type: String,
 		required: true,
-		enum: ["Available", "Sold"],
+		enum: Object.values(StatusOptions),
 		default: "Available",
 	},
 });
