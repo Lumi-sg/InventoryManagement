@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+
+  ul
+    each controller in controller_list
+      li
+        a(href=controller.url) #{controller.product_name}
+        |  (#{controller.designer.name})
+
+    else
+      li There are no controllers.

@@ -7,7 +7,8 @@ import http from "http";
 import path from "path";
 
 import mongoose from "mongoose";
-import router from "./router";
+import indexRouter from "./router/index";
+import catalogRouter from "./router/catalog";
 
 const app = express();
 
@@ -52,7 +53,8 @@ app.use(express.static(path.join(__dirname, "public")));
 // //Middleware
 
 // Default route
-app.use("/", router);
+app.use("/", indexRouter);
+app.use("/catalog", catalogRouter);
 
 const server = http.createServer(app);
 
