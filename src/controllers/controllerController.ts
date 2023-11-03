@@ -43,3 +43,7 @@ exports.controller_list = asyncHandler(async (req, res) => {
 		controller_list: allControllers,
 	});
 });
+
+// Display detail page for specific controller
+
+// Display controller create form on GET

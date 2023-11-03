@@ -8,4 +8,9 @@ const designerSchema = new Schema({
 	website: { type: String, required: true, minlength: 3, maxlength: 50 },
 });
 
+//virtual for url
+designerSchema.virtual("url").get(function () {
+	return `/catalog/designer/${this._id}`;
+});
+
 export const Designer = mongoose.model("Designer", designerSchema);
