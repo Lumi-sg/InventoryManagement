@@ -15,6 +15,26 @@ exports.designer_list = asyncHandler(async (req, res) => {
 	});
 });
 
+//Display detail page for specific designer
+exports.designer_detail = asyncHandler(async (req, res, next) => {
+	const [designer, allControllersByDesigner] = await Promise.all([
+		Designer.findById(req.params.id).exec(),
+		Controller.find({ designer: req.params.id }, "product_name description").exec(),
+	]);
+
+	if (designer === null) {
+		//No results
+		const err = new Error("Designer not found");
+		return next(err);
+	}
+
+	res.render("designer_detail", {
+		title: "Designer Detail",
+		designer: designer,
+		designer_controllers: allControllersByDesigner,
+	});
+});
+
 //Display designer create form on GET
 exports.designer_create_get = asyncHandler(async (req, res) => {
 	res.render("designer_form", {

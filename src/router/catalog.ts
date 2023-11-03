@@ -14,6 +14,8 @@ router.get("/designer/create", designer_controller.designer_create_get);
 
 router.post("/designer/create", designer_controller.designer_create_post);
 
+router.get("/designer/:id", designer_controller.designer_detail);
+
 router.get("/designers", designer_controller.designer_list);
 
 export default router;

@@ -1,0 +1,21 @@
+extends layout 
+block content 
+
+    h1 Designer: #{designer.name}
+
+    div(style="margin-left:20px;margin-top:20px")
+
+        h4 Controllers 
+
+        dl 
+            each controller in designer_controllers 
+                dt 
+                    a(href=controller.url) #{controller.product_name}
+                dd #{controller.description}
+            else 
+                p This designer has no controllers.
+        hr
+        p
+            a(href=designer.url+'/delete') Delete designer
+        p 
+            a(href=designer.url+'/update') Update designer
