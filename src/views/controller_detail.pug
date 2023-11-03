@@ -1,0 +1,28 @@
+extends layout 
+block content 
+
+    h1 Controller: #{controller.product_name}
+
+    p #[strong Designer: ]
+        a(href=controller.designer.url) #{controller.designer.name}
+    p #[strong Description:] #{controller.description}
+    p #[strong Price:] $#{controller.price}
+    p #[strong Type:] 
+        a(href=controller.controller_type.url) #{controller.controller_type.type}
+
+    div(style="margin-left:20px;margin-top:20px")
+
+        h4 Controllers 
+
+        dl 
+            each instance in controllerInstances 
+                dt 
+                    a(href=instance.url) #{instance.controller}
+                dd #{instance.status}
+            else 
+                p This controller is not in supply.
+        hr
+        p
+            a(href=controller.url+'/delete') Delete controller
+        p 
+            a(href=controller.url+'/update') Update controller

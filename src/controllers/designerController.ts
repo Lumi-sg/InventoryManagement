@@ -48,23 +48,12 @@ exports.designer_create_post = [
 		.trim()
 		.isLength({ min: 1 })
 		.escape()
-		.withMessage("Name must be specified.")
-		.isAlphanumeric()
-		.withMessage("Name has non-alphanumeric characters."),
+		.withMessage("Name must be specified."),
 	body("bio")
 		.trim()
 		.isLength({ min: 1 })
 		.escape()
-		.withMessage("Bio must be specified.")
-		.isAlphanumeric()
-		.withMessage("Bio has non-alphanumeric characters."),
-	body("website")
-		.trim()
-		.isLength({ min: 1 })
-		.escape()
-		.withMessage("Website must be specified.")
-		.isURL()
-		.withMessage("Website must be a valid URL."),
+		.withMessage("Bio must be specified."),
 
 	asyncHandler(async (req, res) => {
 		const errors = validationResult(req);
@@ -72,7 +61,6 @@ exports.designer_create_post = [
 		const designer = new Designer({
 			name: req.body.name,
 			bio: req.body.bio,
-			website: req.body.website,
 		});
 		if (!errors.isEmpty()) {
 			res.render("designer_form", {
@@ -83,7 +71,7 @@ exports.designer_create_post = [
 			return;
 		} else {
 			await designer.save();
-			res.redirect("/catalog");
+			res.redirect("/catalog/designers");
 		}
 	}),
 ];

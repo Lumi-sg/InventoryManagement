@@ -25,9 +25,9 @@ block content
 
     div.form-group
       label(for='controller_type') Controller Type:
-      select#controller_type.form-control(type='select', placeholder='Select controller type' name='controller_type' required='true')- controllerTypes.sort((a, b) => a.name.localeCompare(b.name))
-          for controllerType in controllerTypes
-            option(value=controllerType._id, selected=controller && controllerType._id.toString() === controller.controller_type._id.toString()) #{controllerType.name}
+      select#controller_type.form-control(type='select', placeholder='Select type' name='controller_type' required='true' )- controllerTypes.sort((a, b) => a.type.localeCompare(b.type))
+          for controllertype in controllerTypes
+            option(value=controllertype._id, selected=controller && controllertype._id.toString() === controllertype._id.toString()) #{controllertype.type}
 
 
 

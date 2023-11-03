@@ -16,7 +16,7 @@ const controllerSchema = new Schema({
 });
 
 controllerSchema.virtual("url").get(function () {
-	return `/controller/${this._id}`;
+	return `/catalog/controller/${this._id}`;
 });
 
 export const Controller = mongoose.model("Controller", controllerSchema);

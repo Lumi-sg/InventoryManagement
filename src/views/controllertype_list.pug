@@ -1,0 +1,10 @@
+extends layout 
+
+block content 
+
+    h1= title 
+
+    ul
+        each controllertype in controllertype_list 
+            li 
+                a(href=controllertype.url) #{controllertype.type}
