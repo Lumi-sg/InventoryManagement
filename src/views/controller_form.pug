@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  h1=title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='controller') Controller Name:
+      input#product_name.form-control(type='text' placeholder='Controller name' name='product_name' required='true' value=(undefined===controller ? '' : controller.product_name) )
+
+      label(for="price") Price:
+      input#price.form-control(type="number" placeholder="$" name="price" required="true" value=(undefined===controller? "": controller.price) min="0")
+
+
+    div.form-group
+      label(for='designer') Designer:
+      select#designer.form-control(type='select', placeholder='Select designer' name='designer' required='true' )- allDesigners.sort((a, b) => a.name.localeCompare(b.name))
+          for designer in allDesigners
+            option(value=designer._id, selected=controller && designer._id.toString() === controller.designer._id.toString()) #{designer.name}
+
+
+
+      label(for="description") Description:
+      input#description.form-control(type="text" placeholder="Controller description" name="description" required="true" value=(undefined===controller? "": controller.description)) 
+
+    div.form-group
+      label(for='controller_type') Controller Type:
+      select#controller_type.form-control(type='select', placeholder='Select controller type' name='controller_type' required='true')- controllerTypes.sort((a, b) => a.name.localeCompare(b.name))
+          for controllerType in controllerTypes
+            option(value=controllerType._id, selected=controller && controllerType._id.toString() === controller.controller_type._id.toString()) #{controllerType.name}
+
+
+
+    button.btn.btn-primary(type='submit') Submit
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

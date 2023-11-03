@@ -46,4 +46,24 @@ exports.controller_list = asyncHandler(async (req, res) => {
 
 // Display detail page for specific controller
 
+// exports.controller_detail = asyncHandler(async (req, res, next) => {
+// 	const [controller, controllerDesigner, controllerType, allControllerInstances] =
+// 		await Promise.all([
+// 			Controller.findById(req.params.id).exec(),
+// 			Designer.find({ controllerDesigner: req.params.id}, "designer").exec(),
+// 		]);
+// });
+
 // Display controller create form on GET
+
+exports.controller_create_get = asyncHandler(async (req, res) => {
+	const [allDesigners, controllerTypes] = await Promise.all([
+		Designer.find().exec(),
+		ControllerType.find().exec(),
+	]);
+	res.render("controller_form", {
+		title: "Create Controller",
+		allDesigners: allDesigners,
+		controllerTypes: controllerTypes,
+	});
+});
