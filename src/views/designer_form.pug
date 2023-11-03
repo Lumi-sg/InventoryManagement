@@ -9,8 +9,7 @@ block content
       input#name.form-control(type='text' placeholder='Designer name' name='name' required='true' value=(undefined===designer ? '' : designer.name) )
       label(for="bio") Biography:
       input#bio.form-control(type="text" placeholder="A short description" name="bio" required="true" value=(undefined===designer? "": designer.bio))
-      label(for="website") Website:
-      input#website.form-control(type="text" placeholder="Designer's website" name="website" required="true" value=(undefined===designer? "": designer.website)) 
+
 
     button.btn.btn-primary(type='submit') Submit
   if errors
