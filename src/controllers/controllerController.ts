@@ -251,6 +251,7 @@ exports.controller_update_post = [
 			description: req.body.description,
 			controller_type: req.body.controller_type,
 			designer: req.body.designer,
+			_id: req.params.id,
 		});
 
 		if (!errors.isEmpty()) {
@@ -267,12 +268,9 @@ exports.controller_update_post = [
 				errors: errors.array(),
 			});
 			return;
-		} else{
-			const theController = await Controller.findByIdAndUpdate(
-				req.params.id,
-				controller
-			);
+		} else {
+			await Controller.findByIdAndUpdate(req.params.id, controller);
 			res.redirect("/catalog/controllers");
 		}
-	})
+	}),
 ];
