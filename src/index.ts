@@ -1,7 +1,7 @@
 import bodyParser from "body-parser";
 import compression from "compression";
 import cookieParser from "cookie-parser";
-import cors from "cors";
+
 import express from "express";
 import http from "http";
 import path from "path";
@@ -11,12 +11,6 @@ import catalogRouter from "./router/catalog";
 import indexRouter from "./router/index";
 
 const app = express();
-
-app.use(
-	cors({
-		credentials: true,
-	})
-);
 
 app.use(compression());
 app.use(bodyParser.json());
@@ -63,5 +57,5 @@ app.use("/catalog", catalogRouter);
 const server = http.createServer(app);
 
 server.listen(8080, () => {
-	console.log("Server running on http://localhost:8080");
+	console.log(`Server running on http://localhost:8080`);
 });
