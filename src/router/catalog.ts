@@ -4,6 +4,7 @@ const router = express.Router();
 const controller_controller = require("../controllers/controllerController");
 const designer_controller = require("../controllers/designerController");
 const controllerType_controller = require("../controllers/controllerTypeController");
+const instance_controller = require("../controllers/instanceController");
 
 router.get("/", controller_controller.index);
 
@@ -46,5 +47,23 @@ router.get("/designers", designer_controller.designer_list);
 router.get("/controllertypes", controllerType_controller.controllertype_list);
 
 router.get("/controllertype/:id", controllerType_controller.controllertype_detail);
+
+//instance routes
+
+// router.get("/instances", instance_controller.instance_list);
+
+// router.get("/instance/:id", instance_controller.instance_detail);
+
+router.get("/instance/create", instance_controller.instance_create_get);
+
+// router.post("/instance/create", instance_controller.instance_create_post);
+
+// router.get("/instance/:id/update", instance_controller.instance_update_get);
+
+// router.post("/instance/:id/update", instance_controller.instance_update_post);
+
+// router.get("/instance/:id/delete", instance_controller.instance_delete_get);
+
+// router.post("/instance/:id/delete", instance_controller.instance_delete_post);
 
 export default router;
