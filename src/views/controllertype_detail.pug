@@ -1,0 +1,18 @@
+extends layout
+
+block content
+
+  h1 Type: #{controllertype.type}
+
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 Controller
+
+    dl
+    each controller in allControllersByControllertype
+      dt
+        a(href=controller.url) #{controller.product_name}
+      dd #{controller.description}
+
+    else
+      p This type has no controllers.
