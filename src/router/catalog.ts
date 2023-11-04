@@ -58,9 +58,9 @@ router.get("/instance/create", instance_controller.instance_create_get);
 
 router.post("/instance/create", instance_controller.instance_create_post);
 
-// router.get("/instance/:id/update", instance_controller.instance_update_get);
+router.get("/instance/:id/update", instance_controller.instance_update_get);
 
-// router.post("/instance/:id/update", instance_controller.instance_update_post);
+router.post("/instance/:id/update", instance_controller.instance_update_post);
 
 router.get("/instance/:id/delete", instance_controller.instance_delete_get);
 
