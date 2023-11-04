@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h1 #{title}: #{designer.name}
+  p= designer.bio 
+
+  if allControllersByDesigner.length
+
+    p #[strong Delete the following contrllers before attempting to delete this author.]
+
+    div(style='margin-left:20px;margin-top:20px')
+
+      h4 Controllers
+
+      dl
+      each controller in allControllersByDesigner
+        dt
+          a(href=controller.url) #{controller.product_name}
+        dd #{controller.description}
+
+  else
+    p Do you really want to delete this Designer?
+
+    form(method='POST' action='')
+      div.form-group
+        input#designerid.form-control(type='hidden',name='designerid', required='true', value=designer._id )
+
+      button.btn.btn-primary(type='submit') Delete

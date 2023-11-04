@@ -7,8 +7,8 @@ import http from "http";
 import path from "path";
 
 import mongoose from "mongoose";
-import indexRouter from "./router/index";
 import catalogRouter from "./router/catalog";
+import indexRouter from "./router/index";
 
 const app = express();
 

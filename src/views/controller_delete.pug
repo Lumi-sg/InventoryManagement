@@ -1,0 +1,42 @@
+extends layout 
+block content 
+
+    h1 Controller: #{controller.product_name}
+
+    p #[strong Designer: ]
+        a(href=controller.designer.url) #{controller.designer.name}
+    p #[strong Description:] #{controller.description}
+    p #[strong Price:] $#{controller.price}
+    p #[strong Type:] 
+        a(href=controller.controller_type.url) #{controller.controller_type.type}
+
+    div(style="margin-left:20px;margin-top:20px")
+
+    hr
+
+    if controllerInstances.length 
+        p #[strong Delete the following copies before attempting to delete this Controller.]
+
+        div(style='margin-left:20px;margin-top:20px')
+
+            h4 Controllers
+
+            each instance in controllerInstances
+                hr
+                if instance.status=='Available'
+                    p.text-success #{instance.status}
+                else if instance.status=='Maintenance'
+                    p.text-danger #{instance.status}
+                else
+                    p.text-warning #{instance.status}
+                p #[strong Id:]
+                    a(href=instance.url) #{instance._id}
+
+    else
+        p Do you really want to delete this Controller?
+
+        form(method='POST' action='')
+            div.form-group
+                input#controllerid.form-control(type='hidden',name='controllerid', required='true', value=controller._id )
+
+            button.btn.btn-primary(type='submit') Delete
