@@ -45,4 +45,6 @@ router.get("/designers", designer_controller.designer_list);
 
 router.get("/controllertypes", controllerType_controller.controllertype_list);
 
+router.get("/controllertype/:id", controllerType_controller.controllertype_detail);
+
 export default router;
