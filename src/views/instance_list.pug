@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+
+  ul
+    each instance in instance_list
+      li
+        a(href=instance.url) #{instance.controller.product_name}  
+        if instance.status=='Available'
+          span.text-success - #{instance.status}
+        else if instance.status=='Sold'
+          span.text-danger - #{instance.status}
+        else
+          span.text-warning - #{val.status}
+
+    else
+      li There is no stock avaiable in the store.

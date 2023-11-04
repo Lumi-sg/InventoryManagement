@@ -1,0 +1,21 @@
+extends layout
+
+block content
+
+  p #[strong Controller Name: ]
+    a(href=instance.controller.url) #{instance.controller.product_name}
+
+  p #[strong Designer Name: ]
+    a(href=instance.controller.designer.url) #{instance.controller.designer.name}
+
+  p #[strong Status: ]
+    if instance.status=='Available'
+      span.text-success #{instance.status}
+    else if instance.status=='Sold'
+      span.text-danger #{instance.status}
+
+  hr
+  p
+    a(href=instance.url+'/delete') Delete Controller Stock
+  p
+    a(href=instance.url+'/update') Update Controller Stock

@@ -1,0 +1,26 @@
+extends layout
+
+block content
+
+  h1= title
+
+  p #[strong Do you really want to delete this Controller instance?]
+
+  div(style="margin-left:20px")
+
+    p #[strong Controller Name: ]
+      a(href=instance.controller.url) #{instance.controller.product_name}
+
+
+    p #[strong Status: ]
+      if instance.status=='Available'
+        span.text-success #{instance.status}
+      else if instance.status=='Sold'
+        span.text-danger #{instance.status}
+
+
+  form(method='POST' action='')
+    div.form-group
+      input#id.form-control(type='hidden',name='id', required='true', value=instance._id )
+
+    button.btn.btn-primary(type='submit') Delete

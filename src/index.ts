@@ -22,12 +22,16 @@ app.use(compression());
 app.use(bodyParser.json());
 
 //DB Stuff
-const MONGO_URL =
-	"mongodb+srv://Shai:Dragon92@cluster0.lolmzc0.mongodb.net/inventory_mgmt?retryWrites=true&w=majority";
-
+const MONGODBURL = process.env.MONGODBURL;
+if (!MONGODBURL) {
+	console.error("MONGODBURL environment variable is not set.");
+	process.exit(1); // Exit the application with an error code.
+}
 mongoose.set("strictQuery", false);
 mongoose.Promise = Promise;
-mongoose.connect(MONGO_URL);
+mongoose.connect(MONGODBURL);
+
+// The application now uses MONGODBURL as the MongoDB connection URL.
 
 //Mongo connection info
 mongoose.connection.on("error", (error: Error) => {
