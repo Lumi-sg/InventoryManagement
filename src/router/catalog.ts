@@ -52,7 +52,7 @@ router.get("/controllertype/:id", controllerType_controller.controllertype_detai
 
 router.get("/instances", instance_controller.instance_list);
 
-// router.get("/instance/:id", instance_controller.instance_detail);
+router.get("/instance/:id", instance_controller.instance_detail);
 
 router.get("/instance/create", instance_controller.instance_create_get);
 
@@ -62,8 +62,8 @@ router.post("/instance/create", instance_controller.instance_create_post);
 
 // router.post("/instance/:id/update", instance_controller.instance_update_post);
 
-// router.get("/instance/:id/delete", instance_controller.instance_delete_get);
+router.get("/instance/:id/delete", instance_controller.instance_delete_get);
 
-// router.post("/instance/:id/delete", instance_controller.instance_delete_post);
+router.post("/instance/:id/delete", instance_controller.instance_delete_post);
 
 export default router;

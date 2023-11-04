@@ -18,7 +18,7 @@ const controllerInstanceSchema = new Schema({
 });
 
 controllerInstanceSchema.virtual("url").get(function () {
-	return `/controllerinstance/${this._id}`;
+	return `/catalog/instance/${this._id}`;
 });
 
 export const ControllerInstance = mongoose.model(
