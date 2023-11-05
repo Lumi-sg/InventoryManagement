@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for lumcontrollerstore on 2023-11-04T06:06:18-04:00
+# fly.toml app configuration file generated for lumcontrolshop on 2023-11-04T20:16:17-04:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "lumcontrollerstore"
+app = "lumcontrolshop"
 primary_region = "yyz"
 
 [build]
